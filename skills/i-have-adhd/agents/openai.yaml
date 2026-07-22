@@ -1,0 +1,4 @@
+interface:
+  display_name: "I Have ADHD"
+  short_description: "Make every response easier to read and act on"
+  default_prompt: "Use $i-have-adhd to make this response easy to read and act on."
