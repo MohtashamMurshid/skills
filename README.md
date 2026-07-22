@@ -5,6 +5,16 @@
 
 Reusable skills for AI coding agents, published through [skills.sh](https://skills.sh).
 
+## Skills
+
+### `generate-editorial-report`
+
+Transform notes, research, project data, and mixed source material into evidence-led, art-directed editorial reports with responsive web presentation, optional PDF output, SEO, and generated archival figures.
+
+```bash
+npx skills add mohtashammurshid/skills --skill generate-editorial-report
+```
+
 ## Install
 
 List the skills in this collection:

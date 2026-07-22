@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Editorial",
+      "description": "Skills for evidence-led reports and visual publishing.",
+      "skills": [
+        "generate-editorial-report"
+      ]
+    }
+  ]
+}

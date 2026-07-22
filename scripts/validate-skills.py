@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -67,6 +68,46 @@ def validate_skill(path: Path) -> list[str]:
     return errors
 
 
+def validate_skills_config(skill_names: set[str]) -> list[str]:
+    path = ROOT / "skills.sh.json"
+    if not path.exists():
+        return []
+
+    try:
+        config = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        return [f"must contain valid JSON: {error}"]
+
+    groupings = config.get("groupings") if isinstance(config, dict) else None
+    if not isinstance(groupings, list) or not groupings:
+        return ["groupings must be a non-empty array"]
+
+    errors: list[str] = []
+    listed: set[str] = set()
+    for index, grouping in enumerate(groupings, start=1):
+        label = f"groupings[{index}]"
+        if not isinstance(grouping, dict):
+            errors.append(f"{label} must be an object")
+            continue
+        if not isinstance(grouping.get("title"), str) or not grouping["title"].strip():
+            errors.append(f"{label}.title must be a non-empty string")
+        skills = grouping.get("skills")
+        if not isinstance(skills, list) or not skills:
+            errors.append(f"{label}.skills must be a non-empty array")
+            continue
+        for skill in skills:
+            if not isinstance(skill, str) or not skill.strip():
+                errors.append(f"{label}.skills entries must be non-empty strings")
+            elif skill not in skill_names:
+                errors.append(f"{label} references unknown skill {skill!r}")
+            elif skill in listed:
+                errors.append(f"skill {skill!r} appears in more than one grouping")
+            else:
+                listed.add(skill)
+
+    return errors
+
+
 def main() -> int:
     if not SKILLS_DIR.is_dir():
         print(f"error: missing skills directory: {SKILLS_DIR.relative_to(ROOT)}", file=sys.stderr)
@@ -93,6 +134,15 @@ def main() -> int:
         failures += 1
         print(f"FAIL {path.relative_to(ROOT)}")
         print("  - SKILL.md must be exactly one directory below skills/")
+
+    config_errors = validate_skills_config({path.parent.name for path in skill_files})
+    if config_errors:
+        failures += 1
+        print("FAIL skills.sh.json")
+        for error in config_errors:
+            print(f"  - {error}")
+    elif (ROOT / "skills.sh.json").exists():
+        print("PASS skills.sh.json")
 
     if failures:
         print(f"\nValidation failed for {failures} skill(s).", file=sys.stderr)

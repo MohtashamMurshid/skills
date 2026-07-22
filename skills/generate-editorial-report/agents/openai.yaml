@@ -1,0 +1,4 @@
+interface:
+  display_name: "Editorial Report Generator"
+  short_description: "Turn source material into illustrated reports"
+  default_prompt: "Use $generate-editorial-report to turn this source material into a responsive illustrated field report."
