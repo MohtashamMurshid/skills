@@ -6,6 +6,7 @@
 - Use the same lowercase, hyphenated value for the directory and frontmatter `name`.
 - Keep the frontmatter `description` specific about both capability and trigger conditions.
 - Keep the main instructions concise and imperative. Move detailed material into `references/`.
+- Keep required workflows agent-agnostic. Describe capabilities and fallbacks instead of requiring a vendor-specific agent, model, skill, or tool.
 - Include scripts only when they improve repeatability; test every added script.
 - Never commit credentials, tokens, personal data, or generated dependency folders.
 

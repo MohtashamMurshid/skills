@@ -29,10 +29,10 @@ Install one skill:
 npx skills add mohtashammurshid/skills --skill <skill-name>
 ```
 
-Install all skills globally for Codex:
+Install all skills globally for the agents detected by the CLI:
 
 ```bash
-npx skills add mohtashammurshid/skills --all -g -a codex
+npx skills add mohtashammurshid/skills --all -g
 ```
 
 ## Create a skill
@@ -52,8 +52,6 @@ npx skills add mohtashammurshid/skills --all -g -a codex
    ```text
    skills/my-skill/
    ├── SKILL.md
-   ├── agents/
-   │   └── openai.yaml
    ├── scripts/
    ├── references/
    └── assets/

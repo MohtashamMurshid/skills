@@ -1,6 +1,6 @@
 ---
 name: generate-editorial-report
-description: Transform arbitrary source material into an art-directed editorial report inspired by vintage annual reports, with evidence-led writing, responsive horizontal web presentation, optional static/PDF export, SEO, and generated archival figures. Use when Codex is asked to turn notes, research, project data, company information, portfolios, case studies, or mixed source files into a report, field guide, annual report, dossier, visual essay, or sliding/paginated report—especially when the user wants image generation, strong editorial art direction, or the bundled reference design.
+description: Transform arbitrary source material into an art-directed editorial report inspired by vintage annual reports, with evidence-led writing, responsive horizontal web presentation, optional static/PDF export, SEO, and generated archival figures. Use when turning notes, research, project data, company information, portfolios, case studies, or mixed source files into a report, field guide, annual report, dossier, visual essay, or sliding/paginated report—especially when the request calls for image generation, strong editorial art direction, or the bundled reference design.
 ---
 
 # Generate Editorial Report
@@ -13,6 +13,7 @@ Turn supplied facts into a coherent, visually authored report. Default to a resp
 - Invent presentation language, section titles, folio labels, and visual metaphors; never invent evidence.
 - Treat the report as an editorial argument, not a decorated data dump.
 - Use the bundled design as a grammar, not a brand to copy verbatim.
+- Work with the tools and file operations available in the current environment. Do not require a specific agent, model provider, editor, browser, or framework.
 - Ask only when audience, output format, or publication authority cannot be inferred safely. Otherwise proceed with labeled assumptions.
 - Produce the artifact and validate it; do not stop at a plan or mood board.
 
@@ -75,7 +76,8 @@ Avoid pasted-on rectangles, random vintage decoration, excessive sepia, tiny bod
 
 Read [references/image-direction.md](references/image-direction.md) before generating any visual.
 
-- Use the `imagegen` skill and image-generation tool for covers, metaphorical figures, engravings, textures, and photo treatments.
+- Use any available image-generation capability for covers, metaphorical figures, engravings, textures, and photo treatments.
+- If image generation is unavailable, use supplied media, a suitable bundled figure, or a code-native visual. Do not block the report on a missing provider-specific tool.
 - Generate one distinct asset per prompt/call and validate each output before integration.
 - Use code-native SVG/HTML/canvas for charts, maps, timelines, and diagrams requiring exact values or labels. Image generation may provide a decorative companion plate, never the authoritative data layer.
 - Prefer transparent cutouts or backgrounds matched to the report paper. Remove chroma keys and validate alpha edges when needed.
@@ -94,7 +96,7 @@ Core behavior:
 - images use stable aspect ratios and intentional focal positions; never crop faces or essential diagram labels;
 - add metadata, canonical URL, social cards, JSON-LD when appropriate, semantic headings, descriptive links, and alt text.
 
-Use `assets/reference-implementation/` as an implementation reference. Adapt it rather than copying its personal content, titles, routes, or data.
+Use `assets/reference-implementation/` as an optional React/Next.js implementation reference. Adapt its patterns to the existing stack rather than introducing React or Next.js solely to use it, and never copy its personal content, titles, routes, or data.
 
 ### 7. Validate proportionally to risk
 

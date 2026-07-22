@@ -7,7 +7,7 @@ The exact source that inspired this skill is bundled at:
 - `assets/reference-implementation/ReportExperience.tsx`
 - `assets/reference-implementation/report.css`
 
-Read them when implementing a React/Next.js report. Reuse patterns selectively. Replace all personal copy, project links, image paths, route names, schema data, and branding.
+Read them when implementing a React/Next.js report. In other stacks, translate the layout and interaction patterns instead of adding React or Next.js as a dependency. Reuse patterns selectively. Replace all personal copy, project links, image paths, route names, schema data, and branding.
 
 ## Structure
 

@@ -32,7 +32,7 @@ Constraints: no text, no watermark, no logo; no invented data; crisp fine lines;
 Avoid: steampunk spectacle, fantasy clutter, photorealism, glossy 3D, generic stock illustration, yellow rectangular panel
 ```
 
-For a transparent cutout, request a flat removable chroma background and follow the active `imagegen` skill’s extraction workflow. Validate the alpha channel, transparent corners, subject coverage, and edge fringe.
+For a transparent cutout, request a transparent output when the available image tool supports it. Otherwise request a flat removable chroma background and use any available raster editor or background-removal utility. If neither is available, match the generated background to the report paper instead of pretending the asset has clean transparency. Validate the alpha channel when present, transparent corners, subject coverage, and edge fringe.
 
 ## Cover prompt scaffold
 
