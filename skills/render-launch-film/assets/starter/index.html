@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Launch film</title>
+    <link rel="stylesheet" href="sequence.css" />
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="stage">
+        <div class="vignette"></div>
+
+        <!-- 01 · title -->
+        <section class="shot shot--title" data-shot="title">
+          <div class="bloom bloom--left"></div>
+          <div class="title">
+            <p class="eyebrow mono" data-role="eyebrow"><i></i><span>v1 · out now</span></p>
+            <h1 class="head">
+              <span class="mask"><span data-role="line1">Say the thing.</span></span>
+              <span class="mask"><span data-role="line2">Then prove it.</span></span>
+            </h1>
+            <div class="rule" data-role="rule"></div>
+            <p class="lede" data-role="lede">
+              One sentence of substance, sized for the person who will read it
+              once and decide.
+            </p>
+          </div>
+        </section>
+
+        <!-- 02 · pillars -->
+        <section class="shot" data-shot="pillars">
+          <p class="shot__label mono" data-role="label">what changed</p>
+          <div class="cards" data-role="cards"></div>
+          <p class="foot mono" data-role="foot">three claims · no filler</p>
+        </section>
+
+        <!-- 03 · endcard -->
+        <section class="shot" data-shot="end">
+          <div class="bloom bloom--center"></div>
+          <div class="badge" data-role="badge"></div>
+          <h2 class="word" data-role="word">Product</h2>
+          <div class="end-rule" data-role="rule"></div>
+          <p class="url mono" data-role="url">example.com</p>
+        </section>
+
+        <!-- persistent frame furniture, hidden by ?frame=0 -->
+        <div class="frame" data-role="frame">
+          <span class="frame__tick frame__tick--tl"></span>
+          <span class="frame__tick frame__tick--tr"></span>
+          <span class="frame__tick frame__tick--bl"></span>
+          <span class="frame__tick frame__tick--br"></span>
+          <span class="frame__id mono">launch film</span>
+          <span class="frame__tc mono" data-role="timecode">00:00:00</span>
+          <span class="frame__shot mono" data-role="shotname"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- playback UI, hidden by ?chrome=0 -->
+    <div id="transport">
+      <button type="button" data-role="toggle" aria-label="Play or pause">▶</button>
+      <input
+        type="range"
+        min="0"
+        max="1000"
+        value="0"
+        step="1"
+        data-role="scrub"
+        aria-label="Scrub timeline"
+      />
+      <span class="mono" data-role="readout">0.00 / 0.00</span>
+    </div>
+
+    <script type="module" src="sequence.js"></script>
+  </body>
+</html>

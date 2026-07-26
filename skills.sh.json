@@ -8,6 +8,13 @@
       "skills": [
         "generate-editorial-report"
       ]
+    },
+    {
+      "title": "Motion",
+      "description": "Skills for animated sequences rendered to video.",
+      "skills": [
+        "render-launch-film"
+      ]
     }
   ]
 }
