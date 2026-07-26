@@ -1,0 +1,410 @@
+/*
+ * sequence.css — stage styling for the starter film.
+ *
+ * Anything that changes over time is written by sequence.js. Do not add CSS
+ * transitions or animations inside #stage: they depend on wall-clock time and
+ * would make frames non-reproducible.
+ *
+ * Swap the tokens below for the brand you are working in. The system font
+ * stack keeps the starter renderable offline; if you switch to webfonts, the
+ * engine already waits for document.fonts.ready before the first frame.
+ */
+
+:root {
+  --ink: #0e0f12;
+  --paper: #f2f1ee;
+  --muted: #a9a6a0;
+  --dim: #6f6c67;
+  --accent: #6e8bff;
+  --accent-hi: #93a8ff;
+  --line: rgba(242, 241, 238, 0.14);
+  --sans: "Helvetica Neue", Inter, system-ui, -apple-system, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #07080a;
+  color: var(--paper);
+  font-family: var(--sans);
+  letter-spacing: -0.03em;
+}
+
+.mono {
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#viewport {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  flex: none;
+  overflow: hidden;
+  transform-origin: 50% 50%;
+  background: radial-gradient(ellipse 70% 60% at 50% 42%, #191c22 0%, #0d0f13 58%, #08090b 100%);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 82% 78% at 50% 50%,
+    transparent 42%,
+    rgba(3, 4, 5, 0.6) 100%
+  );
+}
+
+.shot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.shot__label,
+.foot {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.shot__label {
+  position: absolute;
+  top: 104px;
+  left: 120px;
+  color: var(--accent-hi);
+}
+
+.shot__label::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 1px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background: var(--accent);
+}
+
+.foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.bloom {
+  position: absolute;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bloom--left {
+  left: -6%;
+  top: 8%;
+  width: 68%;
+  height: 84%;
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    rgba(110, 139, 255, 0.3),
+    rgba(52, 66, 140, 0.16) 44%,
+    transparent 70%
+  );
+}
+
+.bloom--center {
+  left: 50%;
+  top: 50%;
+  width: 1400px;
+  height: 1000px;
+  margin: -500px 0 0 -700px;
+  background: radial-gradient(
+    ellipse,
+    rgba(110, 139, 255, 0.34),
+    rgba(48, 60, 128, 0.18) 40%,
+    transparent 68%
+  );
+}
+
+/* 01 · title */
+
+.title {
+  position: absolute;
+  left: 120px;
+  top: 50%;
+  width: 1200px;
+  transform: translateY(-50%);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 34px;
+  font-size: 12px;
+  color: #d5d2cc;
+}
+
+.eyebrow i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+}
+
+.head {
+  margin: 0;
+  font-size: 158px;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.mask > span {
+  display: block;
+  will-change: transform;
+}
+
+.rule {
+  width: 640px;
+  height: 1px;
+  margin: 46px 0 30px;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--accent), rgba(242, 241, 238, 0.12));
+}
+
+.lede {
+  max-width: 620px;
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  color: #c6c2bb;
+}
+
+/* 02 · pillars */
+
+.cards {
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  top: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  transform: translateY(-50%);
+}
+
+.card {
+  min-height: 330px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-bottom: 2px solid rgba(110, 139, 255, 0.55);
+  border-radius: 12px;
+  background: rgba(242, 241, 238, 0.03);
+  will-change: transform, opacity;
+}
+
+.card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--accent-hi);
+}
+
+.card h3 {
+  margin: 22px 0 14px;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.card span {
+  display: block;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  color: #a5a19a;
+}
+
+/* 03 · endcard */
+
+.badge {
+  position: absolute;
+  left: 50%;
+  top: 356px;
+  width: 96px;
+  height: 96px;
+  margin-left: -48px;
+  border-radius: 26px;
+  background: linear-gradient(150deg, var(--accent-hi), #3d4ea8);
+}
+
+.word {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 500px;
+  margin: 0;
+  font-size: 128px;
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  text-align: center;
+}
+
+.end-rule {
+  position: absolute;
+  left: 50%;
+  top: 700px;
+  width: 420px;
+  height: 1px;
+  margin-left: -210px;
+  transform-origin: 50% 50%;
+  background: linear-gradient(90deg, transparent, rgba(242, 241, 238, 0.55), transparent);
+}
+
+.url {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 742px;
+  margin: 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--accent-hi);
+}
+
+/* frame furniture */
+
+.frame {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.frame__tick {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 0 solid rgba(242, 241, 238, 0.34);
+}
+
+.frame__tick--tl {
+  top: 58px;
+  left: 58px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+.frame__tick--tr {
+  top: 58px;
+  right: 58px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.frame__tick--bl {
+  bottom: 58px;
+  left: 58px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.frame__tick--br {
+  bottom: 58px;
+  right: 58px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+.frame__id,
+.frame__tc,
+.frame__shot {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(242, 241, 238, 0.42);
+}
+
+.frame__id {
+  top: 56px;
+  left: 92px;
+}
+.frame__tc {
+  top: 56px;
+  right: 92px;
+}
+.frame__shot {
+  bottom: 54px;
+  right: 92px;
+}
+
+/* transport (outside the stage, so transitions are fine here) */
+
+#transport {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: min(760px, calc(100% - 48px));
+  padding: 10px 16px;
+  transform: translateX(-50%);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(10, 11, 13, 0.82);
+  backdrop-filter: blur(12px);
+}
+
+#transport button {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#transport input {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+#transport span {
+  flex: none;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+body[data-chrome="0"] #transport,
+body[data-frame="0"] .frame {
+  display: none;
+}

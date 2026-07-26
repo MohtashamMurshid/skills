@@ -15,6 +15,14 @@ Transform notes, research, project data, and mixed source material into evidence
 npx skills add mohtashammurshid/skills --skill generate-editorial-report
 ```
 
+### `render-launch-film`
+
+Build a launch video or motion-design sequence as a deterministic, seekable web page, then render it frame by frame into an MP4 with headless Chrome and ffmpeg. Ships a runnable starter film, a timeline engine, and a renderer that also produces review stills and contact sheets.
+
+```bash
+npx skills add mohtashammurshid/skills --skill render-launch-film
+```
+
 ## Install
 
 List the skills in this collection:
