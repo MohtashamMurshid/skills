@@ -7,12 +7,12 @@ Reusable skills for AI coding agents, published through [skills.sh](https://skil
 
 ## Skills
 
-### `create-editorial-pdf-deck`
+### `presentation`
 
-Turn papers, briefs, repositories, and product material into polished 16:9 PDF presentations using an airy editorial system of fine grids, oversized typography, soft color-field gradients, evidence cards, and restrained diagrams. Includes investor and research narrative blueprints, a runnable HTML/CSS starter, and a fast-opening PDF renderer.
+Create or redesign polished presentations from papers, briefs, repositories, product material, existing slides, and visual references. Supports investor, research, product, technical, company, and brand narratives across PDF, editable HTML, PPTX, and Google Slides, with bundled technical-grid and chromatic-grain design systems.
 
 ```bash
-npx skills add mohtashammurshid/skills --skill create-editorial-pdf-deck
+npx skills add mohtashammurshid/skills --skill presentation
 ```
 
 ### `generate-editorial-report`

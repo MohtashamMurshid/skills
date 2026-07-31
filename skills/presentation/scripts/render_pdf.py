@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render a fixed-page HTML deck to PDF and optional review artifacts."""
+"""Render a fixed-page HTML presentation to PDF and optional review artifacts."""
 
 from __future__ import annotations
 
@@ -90,7 +90,7 @@ def flatten_pdf(
     if not pdftoppm:
         raise SystemExit("--fast-open requires pdftoppm from Poppler.")
 
-    with tempfile.TemporaryDirectory(prefix="editorial-deck-flat-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="presentation-flat-") as temporary:
         root = Path(temporary)
         pages = root / "pages"
         pages.mkdir()

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Create Editorial PDF Deck"
-  short_description: "Design polished research and investor PDF decks"
-  default_prompt: "Use $create-editorial-pdf-deck to turn this source material into a polished grid-and-gradient PDF presentation."
