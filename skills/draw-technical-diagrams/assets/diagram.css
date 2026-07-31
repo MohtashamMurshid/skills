@@ -1,0 +1,304 @@
+/*
+ * Drawing conventions for technical figures.
+ *
+ * Strokes are declared in device pixels so hairlines stay hairlines: figures are
+ * scaled by their container, not by the viewport, and a scaled-up 0.6 stroke
+ * stops reading as a detail line.
+ *
+ * Override --diagram-accent and --diagram-paper to rebrand the whole set.
+ */
+
+.diagram {
+  --paper: var(--diagram-paper, #f8f7f2);
+  --accent: var(--diagram-accent, #1747ff);
+  --accent-faint: color-mix(in srgb, var(--accent) 6%, var(--paper));
+  --accent-pale: color-mix(in srgb, var(--accent) 14%, var(--paper));
+  --mono: var(--diagram-mono, ui-monospace, "SFMono-Regular", Menlo, monospace);
+
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--accent);
+}
+
+.diagram :is(path, ellipse, circle, rect) {
+  vector-effect: non-scaling-stroke;
+}
+
+/* Pattern tiles are only a few units wide, so their strokes must scale with the tile. */
+.diagram pattern path {
+  vector-effect: none;
+}
+
+/* ---------------------------------------------------------------- the plate */
+
+.frame {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.75;
+  opacity: 0.3;
+}
+
+.margin {
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  opacity: 0.55;
+}
+
+/* --------------------------------------------------------------- solid parts */
+
+/*
+ * Opaque, so a nearer part hides the one behind it. This is the whole
+ * hidden-line removal strategy: paint back to front and let faces occlude.
+ */
+.face {
+  fill: var(--paper);
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.wall {
+  fill: var(--accent-faint);
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+/* The heavier silhouette pass, drawn last over a solid's own surface lines. */
+.edge {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.hairline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.6;
+  opacity: 0.6;
+}
+
+.fill {
+  fill: var(--accent-pale);
+  stroke: currentColor;
+  stroke-width: 0.6;
+}
+
+/* Machined metal, distinguished from hatched material by being solid. */
+.metal {
+  fill: var(--accent-pale);
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.node {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.mark {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+/* ------------------------------------------------------------- height fields */
+
+.mesh {
+  stroke: currentColor;
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+  stroke-opacity: 0.42;
+}
+
+/* Tint is set per quad as a custom property, so hover can override the fill. */
+.mesh path {
+  fill: var(--tint);
+  transition: fill 140ms ease;
+}
+
+/* ------------------------------------------------------------ section views */
+
+/* Material the cut plane passes through. Set fill="url(#hatch)" as an ATTRIBUTE:
+   a url() fragment in an external stylesheet resolves against the stylesheet. */
+.cut {
+  stroke: currentColor;
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+}
+
+.hatch-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.9;
+  opacity: 0.5;
+}
+
+/* Long-dash / short-dash: the drafting convention for an axis of symmetry. */
+.centerline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.75;
+  stroke-dasharray: 14 4 2 4;
+  opacity: 0.45;
+}
+
+/* ------------------------------------------------------- construction lines */
+
+/* The dashed line every exploded part is pulled apart along. */
+.axis {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.75;
+  stroke-dasharray: 2 6;
+  opacity: 0.5;
+}
+
+.ghost {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.75;
+  stroke-dasharray: 4 5;
+  opacity: 0.4;
+}
+
+/* A path travelling through solid parts, drawn the way hidden detail is drawn.
+   Dash period is 8.5, which the march keyframe below depends on. */
+.trace {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 5 3.5;
+}
+
+/* ------------------------------------------------------------------- labels */
+
+.margin,
+.note,
+.leader-text,
+.leader-sub {
+  font-family: var(--mono);
+  fill: currentColor;
+}
+
+/* Knock the paper back out around label text so leaders may cross artwork. */
+.note,
+.leader-text,
+.leader-sub {
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+}
+
+.leader {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.85;
+}
+
+.leader-text {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+}
+
+.leader-index {
+  opacity: 0.5;
+}
+
+.leader-sub {
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  opacity: 0.52;
+}
+
+.note {
+  font-size: 9px;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+/* --------------------------------------------------------------- hover state */
+
+/*
+ * Every figure responds by performing what it documents: the assembly pulls
+ * further apart, the mechanism actuates, the surface reveals the cell under
+ * the pointer.
+ *
+ * transform-box: view-box makes transform-origin use viewBox coordinates;
+ * SVG otherwise resolves it against each element's own bounding box.
+ */
+
+.part,
+.travel,
+.compress {
+  transition:
+    transform 340ms cubic-bezier(0.22, 0.68, 0.16, 1),
+    fill 200ms ease,
+    opacity 200ms ease;
+  transform-box: view-box;
+}
+
+/* --lift is set inline per part, so the explode is proportional to height. */
+.diagram:hover .part {
+  transform: translateY(var(--lift, 0));
+}
+
+/* Reading one part at a time: the rest of the drawing steps back. */
+.diagram:has(.part:hover) .part:not(:hover) {
+  opacity: 0.32;
+}
+
+.part:hover .face {
+  fill: var(--accent-faint);
+}
+
+.part:hover .edge {
+  stroke-width: 1.9;
+}
+
+.diagram:hover .travel {
+  transform: translateY(var(--travel, 10px));
+}
+
+/* --pivot is the base the part compresses towards, in viewBox coordinates. */
+.compress {
+  transform-origin: var(--pivot-x, 50%) var(--pivot);
+}
+
+.diagram:hover .compress {
+  transform: scaleY(var(--compress, 0.8));
+}
+
+.mesh path:hover {
+  fill: var(--accent-pale);
+}
+
+.diagram:hover .mesh {
+  stroke-opacity: 0.68;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .diagram:hover .trace {
+    animation: march 700ms linear infinite;
+  }
+}
+
+/* One dash period of travel, so the loop is seamless. */
+@keyframes march {
+  to {
+    stroke-dashoffset: -8.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .part,
+  .travel,
+  .compress,
+  .mesh path {
+    transition: none;
+  }
+}

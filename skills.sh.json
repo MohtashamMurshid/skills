@@ -15,6 +15,13 @@
       "skills": [
         "render-launch-film"
       ]
+    },
+    {
+      "title": "Diagrams",
+      "description": "Skills for precise technical illustration.",
+      "skills": [
+        "draw-technical-diagrams"
+      ]
     }
   ]
 }

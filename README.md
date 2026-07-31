@@ -23,6 +23,14 @@ Build a launch video or motion-design sequence as a deterministic, seekable web 
 npx skills add mohtashammurshid/skills --skill render-launch-film
 ```
 
+### `draw-technical-diagrams`
+
+Draw precise SVG technical figures in the idiom of an engineering manual — isometric exploded views, cutaway sections, height-field surfaces — with computed geometry, leader-line callouts, hatched section fills, and CSS-only hover interactions. Ships an isometric geometry module, a stroke and interaction stylesheet, and plate, callout, and hatch primitives.
+
+```bash
+npx skills add mohtashammurshid/skills --skill draw-technical-diagrams
+```
+
 ## Install
 
 List the skills in this collection:
