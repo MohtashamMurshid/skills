@@ -1,0 +1,145 @@
+@page { size: 13.333333in 7.5in; margin: 0; }
+
+:root {
+  --primary: #0789df;
+  --primary-dark: #005ca8;
+  --primary-pale: #dff1ff;
+  --ink: #111820;
+  --muted: #65727e;
+  --paper: #fbfcfd;
+  --line: #dce4ea;
+  --lavender: #dad9ff;
+  --peach: #ffdcd2;
+  --sans: Inter, "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #d8d8d8; color: var(--ink); }
+body { font-family: var(--sans); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.slide {
+  position: relative;
+  width: 13.333333in;
+  height: 7.5in;
+  padding: .58in .62in;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+  background-color: var(--paper);
+}
+.slide:last-child { break-after: auto; page-break-after: auto; }
+
+.grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--ink) 8%, transparent) 1px, transparent 1px);
+  background-size: calc((13.333333in - 1.24in) / 12) .52in;
+  background-position: .62in .58in;
+}
+
+.cover {
+  color: white;
+  background:
+    radial-gradient(ellipse at 38% 24%, rgba(255,255,255,.98) 0 18%, rgba(255,255,255,.78) 34%, transparent 60%),
+    radial-gradient(ellipse at 82% 20%, color-mix(in srgb, var(--primary-pale) 90%, white) 0 9%, transparent 34%),
+    linear-gradient(165deg, #fafdff 0 26%, color-mix(in srgb, var(--primary) 55%, white) 64%, var(--primary-dark) 100%);
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: .56in;
+  border: 1px solid rgba(255,255,255,.86);
+  pointer-events: none;
+}
+
+.brand {
+  position: absolute;
+  top: .62in;
+  right: .68in;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  z-index: 2;
+}
+.brand-mark {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.brand-mark i { display: block; background: currentColor; border-radius: 50%; }
+
+.eyebrow {
+  margin: 0 0 .16in;
+  font-family: var(--mono);
+  font-size: 9px;
+  line-height: 1.2;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.cover .eyebrow { color: rgba(255,255,255,.92); }
+
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 0; font-size: 68px; line-height: .88; letter-spacing: -.06em; }
+h2 { margin-bottom: .12in; max-width: 11.5in; font-size: 44px; line-height: .94; letter-spacing: -.055em; }
+h3 { margin-bottom: .09in; font-size: 17px; line-height: 1.05; letter-spacing: -.02em; }
+p { color: var(--muted); font-size: 14px; line-height: 1.35; }
+.accent { color: var(--primary); }
+
+.cover-title { position: absolute; left: .72in; bottom: .72in; width: 7.5in; z-index: 2; }
+.cover-meta {
+  position: absolute;
+  right: .76in;
+  bottom: .88in;
+  width: 2.9in;
+  color: rgba(255,255,255,.96);
+  font-size: 15px;
+  z-index: 2;
+}
+
+.topline { position: relative; z-index: 1; }
+.cards { display: grid; gap: .18in; margin-top: .36in; }
+.cards.two { grid-template-columns: repeat(2, 1fr); }
+.cards.three { grid-template-columns: repeat(3, 1fr); }
+.card {
+  position: relative;
+  min-height: 1.42in;
+  padding: .24in;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.95);
+}
+.card-index {
+  position: absolute;
+  top: .13in;
+  right: .16in;
+  color: var(--primary);
+  font: 8px/1 var(--mono);
+}
+.card p { margin-bottom: 0; font-size: 12px; }
+
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: .16in; margin-top: .32in; }
+.metric { min-height: 1.42in; padding: .22in; border: 1px solid var(--line); background: white; }
+.metric strong { display: block; color: var(--primary); font-size: 35px; line-height: .95; letter-spacing: -.05em; }
+.metric span { display: block; margin-top: .12in; font-size: 14px; font-weight: 700; }
+.metric small { display: block; margin-top: .08in; color: var(--muted); font: 8px/1.25 var(--mono); }
+
+.footer {
+  position: absolute;
+  left: .62in;
+  right: .62in;
+  bottom: .2in;
+  display: flex;
+  justify-content: space-between;
+  color: #91a0aa;
+  font: 7px/1 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media print {
+  html, body { background: transparent; }
+}

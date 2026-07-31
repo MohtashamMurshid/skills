@@ -7,6 +7,14 @@ Reusable skills for AI coding agents, published through [skills.sh](https://skil
 
 ## Skills
 
+### `create-editorial-pdf-deck`
+
+Turn papers, briefs, repositories, and product material into polished 16:9 PDF presentations using an airy editorial system of fine grids, oversized typography, soft color-field gradients, evidence cards, and restrained diagrams. Includes investor and research narrative blueprints, a runnable HTML/CSS starter, and a fast-opening PDF renderer.
+
+```bash
+npx skills add mohtashammurshid/skills --skill create-editorial-pdf-deck
+```
+
 ### `generate-editorial-report`
 
 Transform notes, research, project data, and mixed source material into evidence-led, art-directed editorial reports with responsive web presentation, optional PDF output, SEO, and generated archival figures.
