@@ -1,0 +1,4 @@
+interface:
+  display_name: "Presentation"
+  short_description: "Create and redesign polished presentation decks"
+  default_prompt: "Use $presentation to turn this material into a polished, source-grounded presentation in the requested format."

@@ -7,6 +7,14 @@ Reusable skills for AI coding agents, published through [skills.sh](https://skil
 
 ## Skills
 
+### `presentation`
+
+Create or redesign polished presentations from papers, briefs, repositories, product material, existing slides, and visual references. Supports investor, research, product, technical, company, and brand narratives across PDF, editable HTML, PPTX, and Google Slides, with bundled technical-grid and chromatic-grain design systems.
+
+```bash
+npx skills add mohtashammurshid/skills --skill presentation
+```
+
 ### `generate-editorial-report`
 
 Transform notes, research, project data, and mixed source material into evidence-led, art-directed editorial reports with responsive web presentation, optional PDF output, SEO, and generated archival figures.
