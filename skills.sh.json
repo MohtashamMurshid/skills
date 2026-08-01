@@ -23,6 +23,13 @@
       "skills": [
         "draw-technical-diagrams"
       ]
+    },
+    {
+      "title": "Agent Engineering",
+      "description": "Skills for designing and debugging AI agents and their tools.",
+      "skills": [
+        "build-reliable-agents"
+      ]
     }
   ]
 }
