@@ -30,6 +30,13 @@
       "skills": [
         "build-reliable-agents"
       ]
+    },
+    {
+      "title": "Communication",
+      "description": "Skills for clear, controlled, and accessible communication.",
+      "skills": [
+        "write-simplified-technical-english"
+      ]
     }
   ]
 }
