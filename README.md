@@ -7,6 +7,14 @@ Reusable skills for AI coding agents, published through [skills.sh](https://skil
 
 ## Skills
 
+### `write-simplified-technical-english`
+
+Write all user-facing text in ASD-STE100 Simplified Technical English: short, direct, consistent, and suitable for clear technical instructions.
+
+```bash
+npx skills add mohtashammurshid/skills --skill write-simplified-technical-english
+```
+
 ### `presentation`
 
 Create or redesign polished presentations from papers, briefs, repositories, product material, existing slides, and visual references. Supports investor, research, product, technical, company, and brand narratives across PDF, editable HTML, PPTX, and Google Slides, with bundled technical-grid and chromatic-grain design systems.
