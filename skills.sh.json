@@ -25,6 +25,13 @@
       ]
     },
     {
+      "title": "Design",
+      "description": "Skills for visual systems and design decisions.",
+      "skills": [
+        "choose-fonts"
+      ]
+    },
+    {
       "title": "Agent Engineering",
       "description": "Skills for designing and debugging AI agents and their tools.",
       "skills": [
