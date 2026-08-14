@@ -1,6 +1,6 @@
 ---
 name: choose-fonts
-description: Choose, pair, and specify fonts for websites, apps, brands, presentations, reports, social graphics, and video. Use when selecting typefaces, improving weak or generic typography, matching a visual mood, building a type system, pairing display and body fonts, or translating references into practical font choices with fallbacks, licensing, language coverage, and implementation constraints.
+description: Choose and pair fonts for visual design.
 ---
 
 # Choose Fonts
