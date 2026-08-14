@@ -39,6 +39,14 @@ Draw precise SVG technical figures in the idiom of an engineering manual — iso
 npx skills add mohtashammurshid/skills --skill draw-technical-diagrams
 ```
 
+### `choose-fonts`
+
+Choose, pair, and specify fonts for products, brands, editorial work, presentations, social graphics, and video—with practical checks for hierarchy, readability, language coverage, licensing, fallbacks, and implementation.
+
+```bash
+npx skills add mohtashammurshid/skills --skill choose-fonts
+```
+
 ## Install
 
 List the skills in this collection:
