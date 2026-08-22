@@ -105,18 +105,65 @@ Use a compact noise tile or frozen raster texture. Keep grain visible in color f
 - Large editorial copy must be rewritten to fit the reference's scale. Do not keep every source sentence and then compensate with smaller type.
 - Keep colored headline gradients short. Long multicolor paragraphs lose hierarchy.
 
+## Editorial contrast
+
+Choose this for project overviews, company narratives, product positioning, manifestos, and design-partner decks that need a sharper editorial voice than either bundled system.
+
+Before using it, read [editorial-contrast.md](editorial-contrast.md) and inspect the approved contact sheet in `../assets/references/editorial-contrast/`.
+
+### Visual grammar
+
+- Alternate deep black and warm paper slides. Use a saturated vermilion label or phrase as the recurring signal.
+- Pair a high-contrast display serif with a plain sans and compact mono. Headlines should occupy real space and often carry the whole slide.
+- Keep fine rules, outlined evidence boxes, sparse diagrams, and a narrow light footer strip consistent across the deck.
+- Use amber, rust, and muted blue inside images. Keep diagrams mostly monochrome with rare red or amber status marks.
+- Treat dense slides as editorial plates: align content to a few strong anchors, then let small captions and technical notation supply detail.
+- Use tactile generated or sourced imagery only on selected cover, boundary, or closing slides. Preserve large areas of quiet black or paper.
+
+### Starting tokens
+
+```css
+:root {
+  --ink: #090907;
+  --paper: #eeeae1;
+  --red: #ef351d;
+  --amber: #dfa216;
+  --blue: #7aa4b3;
+  --display: "Bodoni MT", Didot, Georgia, serif;
+  --sans: Manrope, Arial, sans-serif;
+  --mono: "DM Mono", Consolas, monospace;
+}
+```
+
+### Recurring compositions
+
+1. image-led black cover with a left-aligned display headline and the subject held to one side;
+2. warm-paper thesis with a large two- or three-line claim and a compact evidence form;
+3. black comparison or architecture slide with sparse outlined geometry;
+4. current-versus-target product boundary with explicit status labels;
+5. interface or artifact evidence framed beside a short editorial claim;
+6. three-column roadmap with the current phase rendered as a solid red field;
+7. dark closing image with one final imperative and direct contact action.
+
+### Production lessons
+
+- Rewrite source prose to preserve the display scale. A smaller headline weakens the system faster than a shorter sentence does.
+- Use the red signal consistently for evidence labels, current-state emphasis, or one decisive phrase. Do not scatter it as decoration.
+- Keep capability truth visible. Mark `current`, `target`, `planned`, or `illustrative` directly on the slide when states differ.
+- Flatten textured sharing PDFs with `scripts/render_pdf.py --fast-open`; keep the vector HTML render separately when print scaling or selectable text matters.
+
 ## Selection guide
 
-| Signal | Technical grid | Chromatic grain |
-| --- | --- | --- |
-| Audience | technical, investor, governance | public, brand, product, conference |
-| Mood | precise, quiet, credible | expressive, confident, memorable |
-| Data density | medium to high | low to medium |
-| Structure | grid, cards, fine diagrams | rules, columns, large shapes |
-| Color | one dominant hue | coordinated warm-to-cool spectrum |
-| Texture | subtle cloud or line texture | visible grain inside color fields |
+| Signal | Technical grid | Chromatic grain | Editorial contrast |
+| --- | --- | --- | --- |
+| Audience | technical, investor, governance | public, brand, product, conference | design partners, company, product, manifesto |
+| Mood | precise, quiet, credible | expressive, confident, memorable | stark, literary, tactile, evidence-aware |
+| Data density | medium to high | low to medium | low to medium, with selected dense plates |
+| Structure | grid, cards, fine diagrams | rules, columns, large shapes | oversized claims, ruled plates, sparse maps |
+| Color | one dominant hue | coordinated warm-to-cool spectrum | black/paper plus one signal color |
+| Texture | subtle cloud or line texture | visible grain inside color fields | scan lines, paper grain, selective imagery |
 
-If the user provides a distinct reference, derive a third grammar instead of forcing it into either bundled system.
+If the user provides a distinct reference, derive another grammar instead of forcing it into a bundled system.
 
 ## Anti-patterns
 

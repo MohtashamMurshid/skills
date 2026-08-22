@@ -1,6 +1,6 @@
 ---
 name: presentation
-description: Create, redesign, and deliver polished presentation decks from papers, briefs, repositories, notes, product material, or existing slides. Use when asked for a presentation, slide deck, pitch deck, investor deck, research talk, technical narrative, company overview, product story, conference deck, or a restyle based on reference images. Support PDF, editable HTML, PPTX, and Google Slides according to the requested output; use the bundled technical-grid or chromatic-grain systems when they fit, and derive a new design grammar when another visual reference is supplied.
+description: Create, redesign, and deliver polished presentation decks from papers, briefs, repositories, notes, product material, or existing slides. Use when asked for a presentation, slide deck, pitch deck, investor deck, research talk, technical narrative, company overview, product story, conference deck, or a restyle based on reference images. Support PDF, editable HTML, PPTX, and Google Slides according to the requested output; use the bundled technical-grid, chromatic-grain, or editorial-contrast systems when they fit, and derive a new design grammar when another visual reference is supplied.
 ---
 
 # Presentation
@@ -41,6 +41,7 @@ When reference images are supplied, read [references/reference-analysis.md](refe
 
 - `technical-grid` for restrained research, infrastructure, governance, and investor narratives;
 - `chromatic-grain` for bold brand, studio, product, and high-energy research narratives.
+- `editorial-contrast` for high-contrast product, brand, manifesto, and project-overview narratives with display-serif headlines, black/paper alternation, evidence labels, and tactile image moments. Read [references/editorial-contrast.md](references/editorial-contrast.md) and inspect its approved Oikina sample before using it.
 
 Copy the matching folder from `assets/starters/` into a temporary working directory. Adapt its components and tokens; never leave starter copy in the final deck.
 
@@ -82,11 +83,14 @@ Keep intermediate HTML, rasterized pages, and review images in a temporary direc
 ## Resources
 
 - [references/reference-analysis.md](references/reference-analysis.md) — extract a reusable design grammar from screenshots or an existing deck.
-- [references/design-systems.md](references/design-systems.md) — shared foundations plus the technical-grid and chromatic-grain systems.
+- [references/design-systems.md](references/design-systems.md) — shared foundations plus the technical-grid, chromatic-grain, and editorial-contrast systems.
+- [references/editorial-contrast.md](references/editorial-contrast.md) — the approved Oikina-derived editorial system, slide archetypes, truth-labeling rules, and fast-open delivery pattern.
 - [references/narrative-blueprints.md](references/narrative-blueprints.md) — investor, research, product, and hybrid story structures.
 - [references/production.md](references/production.md) — HTML/PDF rendering, optimization, review, and delivery.
 - `assets/starters/technical-grid/` — restrained grid-and-gradient HTML starter.
 - `assets/starters/chromatic-grain/` — bold grain, oversized-type, and concentric-form HTML starter.
+- `assets/starters/editorial-contrast/` — stark serif-led HTML starter for high-contrast product and company narratives.
+- `assets/references/editorial-contrast/` — approved Oikina contact sheet and fast-opening reference PDF. Treat these as design evidence, not copy or brand assets.
 - `scripts/render_pdf.py` — Chromium renderer with optional fast-open flattening and review sheets.
 
 ## Completion contract
