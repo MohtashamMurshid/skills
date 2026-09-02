@@ -1,0 +1,4 @@
+interface:
+  display_name: "Documentary Video Editor"
+  short_description: "Transcribe and shape documentary footage"
+  default_prompt: "Use $documentary-video-editor to transcribe this footage folder and build a polished documentary cut."

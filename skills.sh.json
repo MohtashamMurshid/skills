@@ -11,8 +11,9 @@
     },
     {
       "title": "Motion",
-      "description": "Skills for animated sequences rendered to video.",
+      "description": "Skills for editing footage and rendering animated sequences to video.",
       "skills": [
+        "documentary-video-editor",
         "render-launch-film"
       ]
     }
